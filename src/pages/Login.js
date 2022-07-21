@@ -1,33 +1,26 @@
 import React from 'react';
+import { Input } from '../components/Input';
+import { SubTitle } from '../components/SubTitle';
+import { Title } from '../components/Title';
+import { Label } from '../components/Label';
+import { PrimaryButton } from '../components/buttons/PrimaryButton';
+import {
+    LoginComponent,
+    FormContainer,
+    Logo,
+    Form,
+} from '../components/login/LoginComponent';
 import styled from 'styled-components';
-import { Input } from '../components/generals/Input';
-import { SubTitle } from '../components/generals/SubTitle';
-import { Title } from '../components/generals/Title';
-import { Label } from '../components/generals/Label';
-import { PrimaryButton } from '../components/generals/buttons/PrimaryButton';
 
-const LoginComponent = styled.div`
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    place-items: center;
-`;
-const FormContainer = styled.div`
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    width: 300px;
-`;
-
-const Logo = styled.img`
-    width: 150px;
-    margin-bottom: 48px;
-    justify-self: center;
-    display: none;
-`;
-
-const Form = styled.form`
-    display: flex;
-    flex-direction: column;
+const Resend = styled.p`
+    font-size: var(--sm);
+    span {
+        color: var(--very-light-pink);
+    }
+    a {
+        color: var(--hospital-green);
+        text-decoration: none;
+    }
 `;
 
 const Login = () => {
@@ -43,12 +36,12 @@ const Login = () => {
 
                 <Form action="/">
                     <Label htmlFor="password" className="label">
-                        Password
+                        Email address
                     </Label>
                     <Input
-                        type="password"
-                        id="password"
-                        placeholder="*********"
+                        type="email"
+                        id="email"
+                        placeholder="platzi@example.cm"
                     />
 
                     <Label htmlFor="new-password" className="label">
@@ -59,8 +52,11 @@ const Login = () => {
                         id="new-password"
                         placeholder="*********"
                     />
+                    <Resend>
+                        <a href="/">Forgot my password</a>
+                    </Resend>
 
-                    <PrimaryButton isInput={true}>Confirm</PrimaryButton>
+                    <PrimaryButton isInput={true}>Sign up</PrimaryButton>
                 </Form>
             </FormContainer>
         </LoginComponent>

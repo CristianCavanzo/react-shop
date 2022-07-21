@@ -14,8 +14,15 @@ const InputComponent = styled.input.attrs(({ type }) => ({
     outline: none;
 `;
 
-const Input = ({ placeholder, type }) => {
-    return <InputComponent placeholder={placeholder} type={type} />;
+const Input = ({ placeholder, type, disabled, id }) => {
+    return (
+        <InputComponent
+            disabled={disabled}
+            placeholder={placeholder}
+            id={id}
+            type={type}
+        />
+    );
 };
 
 export { Input };

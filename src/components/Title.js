@@ -11,4 +11,4 @@ const Title = ({ children }) => {
     return <TitleComponent>{children}</TitleComponent>;
 };
 
-export { Title };
+export { Title, TitleComponent };
