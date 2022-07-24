@@ -6,26 +6,38 @@ import { RecoveryPassword } from '../pages/RecoveryPassword';
 import { Home } from '../pages/Home';
 import { NotFound } from '../pages/NotFound';
 import { Login } from '../pages/Login';
-import MyAccountPage from '../pages/MyAccount';
+import { Register } from '../pages/Register';
+import { EmailRecovery } from '../pages/EmailRecovery';
+import { MyAccountPage } from '../pages/myAccount';
+import { Orders } from '../pages/Orders';
+import { Checkout } from '../pages/Checkout';
 
 const App = () => {
     return (
         <BrowserRouter>
             <Layout>
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route exact path="/" element={<Home />} />
                     <Route exact path="/login" element={<Login />} />
-                    <Route exact path="/forgot" element={<Forgot />} />
-                    <Route
-                        exact
-                        path="/myAccount"
-                        element={<MyAccountPage />}
-                    />
+                    <Route exact path="/newPassword" element={<Forgot />} />
+                    <Route exact path="/register" element={<Register />} />
                     <Route
                         exact
                         path="/recovery"
                         element={<RecoveryPassword />}
                     />
+                    <Route
+                        exact
+                        path="/passwordRecovery"
+                        element={<EmailRecovery />}
+                    />
+                    <Route
+                        exact
+                        path="/myAccount"
+                        element={<MyAccountPage />}
+                    />
+                    <Route exact path="/orders" element={<Orders />} />
+                    <Route exact path="/checkout" element={<Checkout />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Layout>

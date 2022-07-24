@@ -5,10 +5,12 @@ const LabelComponent = styled.label`
     font-size: var(--sm);
     font-weight: bold;
     margin-bottom: 4px;
+    color: ${(props) => props.color};
 `;
 
-const Label = ({ children, htmlFor }) => {
-    return <LabelComponent htmlFor={htmlFor}>{children}</LabelComponent>;
+const Label = (props) => {
+    let properties = { ...props, children: undefined };
+    return <LabelComponent {...properties}>{props.children}</LabelComponent>;
 };
 
 export { Label };

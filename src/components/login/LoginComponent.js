@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const LoginComponent = styled.div`
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 60px);
     display: grid;
     place-items: center;
 `;
@@ -22,9 +22,10 @@ const Logo = styled.img`
     }
 `;
 
-const Form = styled.form`
+const Form = styled.div`
     display: flex;
     flex-direction: column;
+    row-gap: 16px;
 `;
 
 export { LoginComponent, FormContainer, Logo, Form };

@@ -11,21 +11,6 @@ import {
 } from '../components/login/LoginComponent';
 import styled from 'styled-components';
 
-const EmailImage = styled.div`
-    width: 132px;
-    height: 132px;
-    border-radius: 50%;
-    background-color: var(--text-input-field);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 24px;
-    place-self: center;
-    img {
-        width: 80px;
-    }
-`;
-
 const Resend = styled.p`
     font-size: var(--sm);
     text-align: center;
@@ -42,27 +27,24 @@ const Resend = styled.p`
     }
 `;
 
-const RecoveryPassword = () => {
+const EmailRecovery = () => {
     return (
         <div>
             <LoginComponent>
                 <FormContainer>
                     <Logo src="./logos/logo_yard_sale.svg" alt="logo" />
 
-                    <Title>Email has been sent!</Title>
+                    <Title>Password recovery</Title>
                     <SubTitle>
-                        Please check your inbox for instructions on how to reset
-                        the password
+                        Inform the email adress used to create your account
                     </SubTitle>
+                    <Label htmlFor="email">Email address</Label>
+                    <Input id="email" placeholder="example@email.com" />
 
-                    <EmailImage>
-                        <img src="./icons/email.svg" alt="email" />
-                    </EmailImage>
-                    <PrimaryButton>Login</PrimaryButton>
+                    <PrimaryButton>Submit</PrimaryButton>
 
                     <Resend>
-                        <span>Didn't receive the email?</span>
-                        <a href="/">Resend</a>
+                        <a href="/">Back to log in</a>
                     </Resend>
                 </FormContainer>
             </LoginComponent>
@@ -70,4 +52,4 @@ const RecoveryPassword = () => {
     );
 };
 
-export { RecoveryPassword };
+export { EmailRecovery };

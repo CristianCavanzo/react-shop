@@ -13,26 +13,21 @@ const PrimaryButtonComponent = styled.button`
     text-align: center;
 `;
 
-const PrimaryButton = ({ children, isInput, background, color, border }) => {
-    if (isInput) {
+const PrimaryButton = (props) => {
+    let properties = { ...props, children: undefined };
+    if (props.isInput) {
         return (
             <PrimaryButtonComponent
                 as="input"
-                value={children}
+                value={props.children}
                 type="submit"
-                background={background}
-                color={color}
-                border={border}
+                {...properties}
             ></PrimaryButtonComponent>
         );
     } else {
         return (
-            <PrimaryButtonComponent
-                background={background}
-                color={color}
-                border={border}
-            >
-                {children}
+            <PrimaryButtonComponent {...properties}>
+                {props.children}
             </PrimaryButtonComponent>
         );
     }

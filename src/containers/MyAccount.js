@@ -16,7 +16,37 @@ const TitleLeft = styled(TitleComponent)`
     text-align: left;
 `;
 
-const MyAccount = ({ isEditing, children }) => {
+const MyAccount = ({ isEditing, children, changeText }) => {
+    let [state, setState] = React.useState({
+        isEditing,
+        background: 'transparent',
+        color: 'var(--hospital-green)',
+        changeDetected: false,
+    });
+    const onEdit = () => {
+        let background =
+            state.background === 'transparent'
+                ? 'var(--hospital-green)'
+                : 'transparent';
+        let color =
+            state.color === 'var(--hospital-green)'
+                ? '#fff'
+                : 'var(--hospital-green)';
+        setState({
+            ...state,
+            isEditing: !state.isEditing,
+            background,
+            color,
+        });
+    };
+
+    const onChange = () => {
+        setState({
+            ...state,
+            changeDetected: changeText || 'Create',
+        });
+    };
+
     return (
         <LoginComponent>
             <FormContainer>
@@ -24,38 +54,42 @@ const MyAccount = ({ isEditing, children }) => {
 
                 <TitleLeft className="title">My account</TitleLeft>
 
-                <Form action="/">
+                <Form>
                     <Label htmlFor="name">Name</Label>
                     <Input
+                        onKeyUp={onChange}
                         type="text"
                         id="name"
                         placeholder="Camila Yokoo"
-                        disabled={!isEditing}
+                        disabled={!state.isEditing}
                     />
 
                     <Label htmlFor="email">Email Address</Label>
                     <Input
+                        onKeyUp={onChange}
                         type="email"
                         id="email"
                         placeholder="camiladsa@platzi.com"
-                        disabled={!isEditing}
+                        disabled={!state.isEditing}
                     />
 
                     <Label htmlFor="password">Password</Label>
                     <Input
+                        onKeyUp={onChange}
                         type="password"
                         id="password"
                         placeholder="*******"
-                        disabled={!isEditing}
+                        disabled={!state.isEditing}
                     />
 
                     <PrimaryButton
                         isInput={true}
-                        background="#fff"
-                        color="var(--hospital-green)"
+                        background={state.background}
+                        color={state.color}
                         border="2px solid var(--hospital-green)"
+                        onClick={onEdit}
                     >
-                        {children}
+                        {state.changeDetected || children}
                     </PrimaryButton>
                 </Form>
             </FormContainer>
