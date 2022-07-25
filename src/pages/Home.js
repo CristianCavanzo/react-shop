@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Header } from '@components/Header';
 import styled from 'styled-components';
+import useGetProducts from '../hooks/useGetProducts';
+
 const Products = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
@@ -12,16 +14,10 @@ const Products = styled.div`
     }
 `;
 import { Product } from '@components/Product/Product';
-import axios from 'axios';
-
 const API = 'https://api.escuelajs.co/api/v1/products';
 
 const Home = () => {
-    const [products, setProducts] = useState([]);
-    useEffect(async () => {
-        const { data: response } = await axios(API);
-        setProducts(response);
-    }, []);
+    const products = useGetProducts(API);
     return (
         <React.Fragment>
             <Header />
