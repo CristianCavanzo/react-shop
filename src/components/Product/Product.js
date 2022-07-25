@@ -1,15 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-const Products = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 240px);
-    gap: 26px;
-    place-content: center;
-    margin: 3em 0 0 0;
-    @media (max-width: 640px) {
-        grid-template-columns: repeat(auto-fill, 140px);
-    }
-`;
+import addCard from '@icons/bt_add_to_cart.svg';
 
 const ProductComponent = styled.div`
     width: 240px;
@@ -34,6 +25,7 @@ const ProductInfo = styled.div`
     margin-top: 12px;
     figure {
         margin: 0;
+        cursor: pointer;
     }
     img {
         width: 35px;
@@ -54,6 +46,10 @@ const ProductInfo = styled.div`
 `;
 
 const Product = ({ price, productName, image }) => {
+    const [cart, setCart] = useState([]);
+    const addToCart = () => {
+        setCart([]);
+    };
     return (
         <ProductComponent>
             <img src={image} alt="" />
@@ -62,8 +58,8 @@ const Product = ({ price, productName, image }) => {
                     <p className="Price">${price}</p>
                     <p className="ProductName">{productName}</p>
                 </div>
-                <figure>
-                    <img src="./icons/bt_add_to_cart.svg" alt="" />
+                <figure onClick={addToCart}>
+                    <img src={addCard} alt="" />
                 </figure>
             </ProductInfo>
         </ProductComponent>

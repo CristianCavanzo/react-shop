@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Layout } from '../containers/Layout';
-import { Forgot } from '../pages/Forgot';
-import { RecoveryPassword } from '../pages/RecoveryPassword';
-import { Home } from '../pages/Home';
-import { NotFound } from '../pages/NotFound';
-import { Login } from '../pages/Login';
-import { Register } from '../pages/Register';
-import { EmailRecovery } from '../pages/EmailRecovery';
-import { MyAccountPage } from '../pages/myAccount';
-import { Orders } from '../pages/Orders';
-import { Checkout } from '../pages/Checkout';
+import { Forgot } from '@pages/Forgot';
+import { RecoveryPassword } from '@pages/RecoveryPassword';
+import { NotFound } from '@pages/NotFound';
+import { Login } from '@pages/Login';
+import { Register } from '@pages/Register';
+import { EmailRecovery } from '@pages/EmailRecovery';
+import { MyAccountPage } from '@pages/myAccount';
+import { Orders } from '@pages/Orders';
+import { Checkout } from '@pages/Checkout';
+import { Home } from '@pages/Home';
 
 const App = () => {
     return (

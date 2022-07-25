@@ -1,14 +1,14 @@
 import React from 'react';
-import { Input } from '../components/Input';
-import { Label } from '../components/Label';
-import { PrimaryButton } from '../components/buttons/PrimaryButton';
+import { Input } from '@components/Input';
+import { Label } from '@components/Label';
+import { PrimaryButton } from '@components/buttons/PrimaryButton';
 import {
     LoginComponent,
     FormContainer,
     Form,
-} from '../components/login/LoginComponent';
+} from '@components/login/LoginComponent';
 import styled from 'styled-components';
-import { Header } from '../components/Header';
+import { Header } from '@components/Header';
 import { expressions, validInput } from '../helpers/validInput';
 import { useNavigate, Link } from 'react-router-dom';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Header } from '../components/Header';
-import { Title } from '../components/Title';
+import { Header } from '@components/Header';
+import { Title } from '@components/Title';
 
 const MyOrdersComponent = styled.div`
     width: 100%;

@@ -1,15 +1,15 @@
 import React from 'react';
-import { Input } from '../components/Input';
-import { SubTitle } from '../components/SubTitle';
-import { Title } from '../components/Title';
-import { Label } from '../components/Label';
-import { PrimaryButton } from '../components/buttons/PrimaryButton';
+import { Input } from '@components/Input';
+import { SubTitle } from '@components/SubTitle';
+import { Title } from '@components/Title';
+import { Label } from '@components/Label';
+import { PrimaryButton } from '@components/buttons/PrimaryButton';
 import {
     LoginComponent,
     FormContainer,
     Logo,
     Form,
-} from '../components/login/LoginComponent';
+} from '@components/login/LoginComponent';
 
 const Forgot = () => {
     return (

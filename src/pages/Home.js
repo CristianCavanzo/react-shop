@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../components/Header';
+import { Header } from '@components/Header';
 import styled from 'styled-components';
 const Products = styled.div`
     display: grid;
@@ -11,7 +11,7 @@ const Products = styled.div`
         grid-template-columns: repeat(auto-fill, 140px);
     }
 `;
-import { Product } from '../components/Product/Product';
+import { Product } from '@components/Product/Product';
 
 const Home = () => {
     return (
