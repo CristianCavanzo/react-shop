@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from '@components/Header';
 import styled from 'styled-components';
 const Products = styled.div`
@@ -12,17 +12,28 @@ const Products = styled.div`
     }
 `;
 import { Product } from '@components/Product/Product';
+import axios from 'axios';
+
+const API = 'https://api.escuelajs.co/api/v1/products';
 
 const Home = () => {
+    const [products, setProducts] = useState([]);
+    useEffect(async () => {
+        const { data: response } = await axios(API);
+        setProducts(response);
+    }, []);
     return (
         <React.Fragment>
             <Header />
             <Products>
-                <Product
-                    price="100.000"
-                    image="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    productName="bike"
-                />
+                {products.map((product, key) => (
+                    <Product
+                        key={key}
+                        price={product.price}
+                        image={product.images[0]}
+                        productName={product.title}
+                    />
+                ))}
             </Products>
         </React.Fragment>
     );

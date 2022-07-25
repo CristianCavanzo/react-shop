@@ -30,7 +30,7 @@ nav {
 .navbar-left ul li a,
 .navbar-right ul li a {
     text-decoration: none;
-    color: var(--very-light-pink);
+    color: #757575;
     border: 1px solid var(--white);
     padding: 8px;
     border-radius: 8px;
@@ -38,7 +38,7 @@ nav {
 .navbar-left ul li a:hover,
 .navbar-right ul li a:hover {
     border: 1px solid var(--hospital-green);
-    color: var(--hospital-green);
+    color: #627b65;
 }
 .navbar-email {
     color: var(--very-light-pink);

@@ -41,7 +41,7 @@ const ProductInfo = styled.div`
         font-size: var(--sm);
         margin-top: 0;
         margin-bottom: 0;
-        color: var(--very-light-pink);
+        color: #757575;
     }
 `;
 
@@ -52,14 +52,14 @@ const Product = ({ price, productName, image }) => {
     };
     return (
         <ProductComponent>
-            <img src={image} alt="" />
+            <img src={image} alt={productName} loading="lazy" />
             <ProductInfo>
                 <div>
                     <p className="Price">${price}</p>
                     <p className="ProductName">{productName}</p>
                 </div>
                 <figure onClick={addToCart}>
-                    <img src={addCard} alt="" />
+                    <img src={addCard} alt="add product image" />
                 </figure>
             </ProductInfo>
         </ProductComponent>
