@@ -22,7 +22,7 @@ const Logo = styled.img`
     }
 `;
 
-const Form = styled.div`
+const Form = styled.form`
     display: flex;
     flex-direction: column;
     row-gap: 16px;

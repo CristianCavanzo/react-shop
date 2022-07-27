@@ -6,7 +6,7 @@
             "@logos/*": ["assets/logos/*"],
             "@styles/*": ["styles/*"],
             "@components/*": ["components/*"],
-            "@container/*": ["containers/*"],
+            "@containers/*": ["containers/*"],
             "@pages/*": ["pages/*"],
             "@hooks/*": ["hooks/*"]
         }

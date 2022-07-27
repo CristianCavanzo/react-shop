@@ -23,12 +23,7 @@ const Home = () => {
             <Header />
             <Products>
                 {products.map((product, key) => (
-                    <Product
-                        key={key}
-                        price={product.price}
-                        image={product.images[0]}
-                        productName={product.title}
-                    />
+                    <Product key={key} product={product} />
                 ))}
             </Products>
         </React.Fragment>

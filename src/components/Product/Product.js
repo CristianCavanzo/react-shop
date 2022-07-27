@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import addCard from '@icons/bt_add_to_cart.svg';
+import AppContext from '../../context/AppContext';
 
 const ProductComponent = styled.div`
     width: 240px;
@@ -45,20 +46,21 @@ const ProductInfo = styled.div`
     }
 `;
 
-const Product = ({ price, productName, image }) => {
-    const [cart, setCart] = useState([]);
-    const addToCart = () => {
-        setCart([]);
+const Product = ({ product }) => {
+    const { addToCart } = useContext(AppContext);
+
+    const handleClick = (item) => {
+        addToCart(item);
     };
     return (
         <ProductComponent>
-            <img src={image} alt={productName} loading="lazy" />
+            <img loading="lazy" src={product.images[0]} alt={product.title} />
             <ProductInfo>
                 <div>
-                    <p className="Price">${price}</p>
-                    <p className="ProductName">{productName}</p>
+                    <p className="Price">${product.price}</p>
+                    <p className="ProductName">{product.title}</p>
                 </div>
-                <figure onClick={addToCart}>
+                <figure onClick={() => handleClick(product)}>
                     <img src={addCard} alt="add product image" />
                 </figure>
             </ProductInfo>

@@ -11,37 +11,42 @@ import { MyAccountPage } from '@pages/myAccount';
 import { Orders } from '@pages/Orders';
 import { Checkout } from '@pages/Checkout';
 import { Home } from '@pages/Home';
+import AppContext from '../context/AppContext';
+import useInitialState from '@hooks/useInitialState';
 
 const App = () => {
+    const initialState = useInitialState();
     return (
-        <BrowserRouter>
-            <Layout>
-                <Routes>
-                    <Route exact path="/" element={<Home />} />
-                    <Route exact path="/login" element={<Login />} />
-                    <Route exact path="/newPassword" element={<Forgot />} />
-                    <Route exact path="/register" element={<Register />} />
-                    <Route
-                        exact
-                        path="/recovery"
-                        element={<RecoveryPassword />}
-                    />
-                    <Route
-                        exact
-                        path="/passwordRecovery"
-                        element={<EmailRecovery />}
-                    />
-                    <Route
-                        exact
-                        path="/myAccount"
-                        element={<MyAccountPage />}
-                    />
-                    <Route exact path="/orders" element={<Orders />} />
-                    <Route exact path="/checkout" element={<Checkout />} />
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
-            </Layout>
-        </BrowserRouter>
+        <AppContext.Provider value={initialState}>
+            <BrowserRouter>
+                <Layout>
+                    <Routes>
+                        <Route exact path="/" element={<Home />} />
+                        <Route exact path="/login" element={<Login />} />
+                        <Route exact path="/newPassword" element={<Forgot />} />
+                        <Route exact path="/register" element={<Register />} />
+                        <Route
+                            exact
+                            path="/recovery"
+                            element={<RecoveryPassword />}
+                        />
+                        <Route
+                            exact
+                            path="/passwordRecovery"
+                            element={<EmailRecovery />}
+                        />
+                        <Route
+                            exact
+                            path="/myAccount"
+                            element={<MyAccountPage />}
+                        />
+                        <Route exact path="/orders" element={<Orders />} />
+                        <Route exact path="/checkout" element={<Checkout />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </Layout>
+            </BrowserRouter>
+        </AppContext.Provider>
     );
 };
 

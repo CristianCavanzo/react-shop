@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Input } from '@components/Input';
 import { Label } from '@components/Label';
 import { PrimaryButton } from '@components/buttons/PrimaryButton';
@@ -35,6 +35,18 @@ const Login = () => {
         invalidEmail: false,
         invalidPassword: false,
     });
+    const form = useRef(null);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const formData = new FormData(form.current);
+        const data = {
+            username: formData.get('email'),
+            password: formData.get('password'),
+        };
+        console.log(data);
+    };
+
     let navigate = useNavigate();
 
     let onWriteEmail = (value) => {
@@ -53,25 +65,24 @@ const Login = () => {
         } else if (password.length < 8) {
             setState({ ...state, invalidPassword: true });
         } else {
-            return navigate('/');
+            // return navigate('/');
         }
     };
     return [
         <Header key="header" />,
         <LoginComponent key="login">
             <FormContainer>
-                <Form action="/">
+                <Form action="/" ref={form}>
                     <Container>
                         <Label
-                            htmlFor="password"
-                            className="label"
+                            htmlFor="email"
                             color={state.invalidEmail ? '#d25050' : undefined}
                         >
                             Email address
                         </Label>
                         <Input
-                            type="email"
-                            id="email"
+                            type="text"
+                            name="email"
                             placeholder="platzi@example.cm"
                             onKeyUp={({ target: { value } }) =>
                                 onWriteEmail(value)
@@ -81,7 +92,7 @@ const Login = () => {
                         />
 
                         <Label
-                            htmlFor="new-password"
+                            htmlFor="password"
                             className="label"
                             color={
                                 state.invalidPassword ? '#d25050' : undefined
@@ -91,7 +102,7 @@ const Login = () => {
                         </Label>
                         <Input
                             type="password"
-                            id="new-password"
+                            name="password"
                             placeholder="*********"
                             onKeyUp={({ target: { value } }) =>
                                 onWritePassword(value)
@@ -104,7 +115,11 @@ const Login = () => {
                             }
                         />
                     </Container>
-                    <PrimaryButton isInput={true} onClick={login}>
+                    <PrimaryButton
+                        isInput={false}
+                        // onClick={login}
+                        onClick={handleSubmit}
+                    >
                         Log in
                     </PrimaryButton>
 
