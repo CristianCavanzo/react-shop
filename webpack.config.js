@@ -5,9 +5,9 @@ const path = require('path');
 module.exports = {
     entry: './src/index.js',
     output: {
-        filename: 'bundle.js',
+        filename: 'react-shop/bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/',
+        publicPath: '/react-shop/',
     },
     mode: 'production',
     resolve: {
