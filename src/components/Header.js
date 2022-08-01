@@ -6,6 +6,7 @@ import shoppingCart from '@icons/icon_shopping_cart.svg';
 import { Menu } from '@components/Menu';
 import AppContext from '../context/AppContext';
 import { MyOrder } from '@containers/MyOrder';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const {
@@ -28,7 +29,7 @@ const Header = () => {
 
                 <ul>
                     <li>
-                        <a href="/">All</a>
+                        <Link to="/login">All</Link>
                     </li>
                     <li>
                         <a href="/">Clothes</a>
